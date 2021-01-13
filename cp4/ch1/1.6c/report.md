@@ -13,3 +13,7 @@ Just simply silmulation, can replace abcd with letter, by create a string and .f
 
 # Kattis - gamerank *
 Just simple simulatiob and follow the updates rules.
+
+# Kattis - guessinggame *
+Just check whether is all the comment are correct by using the right ans ... 
+Just beware to refrsh every memory after each test case*
