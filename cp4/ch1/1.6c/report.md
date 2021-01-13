@@ -10,3 +10,6 @@ Use array to simulate Snakes and Ladders by assming a snake/ladder that match it
 
 # Kattis -  connectthedots *
 Just simply silmulation, can replace abcd with letter, by create a string and .find()
+
+# Kattis - gamerank *
+Just simple simulatiob and follow the updates rules.
