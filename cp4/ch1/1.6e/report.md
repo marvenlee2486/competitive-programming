@@ -6,3 +6,8 @@ Then For each page i (start at 0)
 
 # UVA 01586 - Molar Mass *
 not hard stuff, just code as it said 
+
+# UVA 13151 - Rational Grading *
+Do as it said, 
+just note that ++ and -- is graded, 
+the only that can be ignore afterward are just the value.
