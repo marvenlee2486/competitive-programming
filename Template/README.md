@@ -1,1 +1,2 @@
-#TEmplates
+#Templates
+To put algo
