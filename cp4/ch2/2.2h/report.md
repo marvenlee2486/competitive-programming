@@ -13,3 +13,15 @@ They use this information will do.!!!
 Can do % and check .. 
 BUT If use bit manipute..
 just take the n-th LSB and check is all 1.
+
+# Kattis - Bitbybit *
+TAke care of AND and OR
+OR:
+if either is 1 then 1
+if either is -1 then -1
+
+AND:
+if either is 0 then 0
+if either is -1 then -1
+
+**IMPORTANT CONCEPT OF AND AND OR
