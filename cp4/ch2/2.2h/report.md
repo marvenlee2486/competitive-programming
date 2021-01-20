@@ -6,5 +6,5 @@ Important Observation is a <=230. This suggest that we can precalculated the & o
 So there are O(230 * n + q) which are small enought !!!! (Kind of greedy/ sotring memory concept, learn it) 
 
 # Kattis - deathstar *
-Important to know,  operator & , if a&b=c , mean there a  and b  contains bit in c !!!!!!
+LEARNING OUTCOME :: Important to know,  operator & , if a&b=c , mean there a  and b  contains bit in c !!!!!!
 They use this information will do.!!!
