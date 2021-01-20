@@ -8,3 +8,8 @@ So there are O(230 * n + q) which are small enought !!!! (Kind of greedy/ sotrin
 # Kattis - deathstar *
 LEARNING OUTCOME :: Important to know,  operator & , if a&b=c , mean there a  and b  contains bit in c !!!!!!
 They use this information will do.!!!
+
+# Kattis - snapperhard *
+Can do % and check .. 
+BUT If use bit manipute..
+just take the n-th LSB and check is all 1.
