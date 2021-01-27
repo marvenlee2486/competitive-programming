@@ -53,7 +53,7 @@ int main()
  //freopen("OUT.txt","w",stdout);
   int n,m;
   while(cin>>n>>m && (n||m) ){
-      set<int> st;
+      unordered_set<int> st;
       rep(i,0,n) {
         int x;
         cin >> x;
