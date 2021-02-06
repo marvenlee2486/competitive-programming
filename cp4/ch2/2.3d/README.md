@@ -5,3 +5,6 @@ AND ALSO, since ORDER sorted and not important , RMB TO USE unordered_set
 
 # *UVA 13148 - A Giveaway
 A really giveaway problem with easy brute force solution.
+
+# *UVA 10887 - Concatenation of ... 
+Beware that there is empty line !!!!
