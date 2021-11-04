@@ -1,0 +1,7 @@
+c:/Users/USER/Documents/GitHub/competitive-programming/cp4/ch4/4.3a/kattis-minspantree.cpp: In function 'int main()':
+c:/Users/USER/Documents/GitHub/competitive-programming/cp4/ch4/4.3a/kattis-minspantree.cpp:98:14: warning: structured bindings only available with '-std=c++17' or '-std=gnu++17'
+   98 |     for(auto&[w,u,v]:EL){
+      |              ^
+c:/Users/USER/Documents/GitHub/competitive-programming/cp4/ch4/4.3a/kattis-minspantree.cpp:107:17: warning: structured bindings only available with '-std=c++17' or '-std=gnu++17'
+  107 |         for(auto[u,v]:ans) cout << u << " " << v << "\n";
+      |                 ^

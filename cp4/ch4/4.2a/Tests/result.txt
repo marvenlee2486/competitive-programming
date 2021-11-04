@@ -1,0 +1,39 @@
+Test 1 Run time error
+
+Input 1: 
+4 3
+0 0 4 3
+0 2 2 3
+2 1 4 3
+
+
+Expected Output : 
+4
+
+
+Obtained Output : 
+
+
+________________________________________________________
+
+Test 1 Run time error
+
+Input 1: 
+4 3
+0 0 4 3
+0 2 2 3
+2 1 4 3
+
+
+Expected Output : 
+4
+
+
+Obtained Output : 
+0
+0
+0
+
+
+________________________________________________________
+

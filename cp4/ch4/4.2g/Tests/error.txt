@@ -1,0 +1,1 @@
+Command failed: "c:/Users/USER/Documents/GitHub/competitive-programming/cp4/ch4/4.2g/Tests/a.exe" 1 < "c:/Users/USER/Documents/GitHub/competitive-programming/cp4/ch4/4.2g/Tests/input_1.txt" > "c:/Users/USER/Documents/GitHub/competitive-programming/cp4/ch4/4.2g/Tests/code_output_1.txt"
