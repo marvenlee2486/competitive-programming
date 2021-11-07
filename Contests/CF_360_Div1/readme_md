@@ -1,0 +1,15 @@
+# A . NP-Hard_Problem
+https://codeforces.com/contest/687/problem/A
+Tags: <Bipartile Checking>
+Basically is Bipartile Checking, but small notes is ignore those vertex without edge
+
+#  B. Remainders Game
+https://codeforces.com/problemset/problem/687/B
+Tags: <Chinese Remainders Theorem> <Sieve to do Prime Decomposition>
+Chinese Remainders Theorem
+if K divisible by LCM( c1,..,cn) then ans is true
+
+To avoid TLE and overflow, we do Prime factorization and MAX over all the C for a single Prime is the avaiable number of prime for k
+Sieve to find Greatest Prime Divisor
+and use the gpd to factorize to settle in O(LOG(N)) avoid TLE.
+
