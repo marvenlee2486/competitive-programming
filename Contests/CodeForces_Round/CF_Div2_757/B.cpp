@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,42 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  
+  int t;
+  cin >> t;
+  while(t--){
+      int n;
+      cin >> n;
+      ii arr[n];
+      rep(i,0,n){
+          int x;
+        cin >> x;
+        arr[i] = {x,i+1};
+      }
+      int ans[n+1];
+      ans[0]=0;
+      sort(arr,arr+n);
+      reverse(arr,arr+n);
+      ll minv=0;
+      ll loc = 1;
+      rep(i,0,n){
+            minv += 2*(i/2+1)*arr[i].fi;
+            ans[arr[i].se] = loc;
+
+            loc = (i%2)? -1*loc+1: -1*loc;
+      }
+      cout << minv << "\n";
+      rep(i,0,n+1)  cout << ans[i] << " ";
+      cout << endl;
+
+  }
+  return 0;
 }
 
 

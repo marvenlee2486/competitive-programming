@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 2e5+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,58 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+
+ll parent[N];
+ll num_set=0;
+
+ll findset(int u){
+    return parent[u] = (parent[u]==u)? u: findset(parent[u]);
+}
+
+bool isSameset(int u,int v){
+    return findset(u)==findset(v);
+}
+
+void unionset(int u,int v){
+    if(isSameset(u,v)){
+        return;
+    }
+
+    parent[findset(u)]= parent[findset(v)];
+    num_set --;
+}
+
+
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+
+    int n,m;
+    cin >> n >> m;
+
+    vvl graph(n+1,vl());
+    rep(i,0,m){
+        int u,v; cin >> u >> v;
+        graph[u].pb(v);
+    }
+    ll ans[n+1];
+    rrep(i,n,1){
+        parent[i]=i;
+        
+        ans[i] = num_set;
+        FOR(v,graph[i]){
+            unionset(i,v);
+        }
+        num_set++;
+    }
+
+    rep(i,1,n+1) cout << ans[i] << "\n";
+
+
+  return 0;
 }
 
 

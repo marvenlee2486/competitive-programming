@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,58 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+
+
+
+ll fact[N];
+ll binpow(ll a, ll b) {
+    ll res = 1;
+
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        res%=MOD;
+        a%=MOD;
+        b >>= 1;
+    }
+    return res%MOD;
+}
+ll modInverse(ll a)
+{
+    return  binpow(a, MOD - 2); 
+}
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+ int n;
+ cin >> n;
+ ll arr[n];
+ fact[0]=1;
+rep(i,1,N) fact[i] = fact[i-1]*i %MOD;
+ll sum = 0;
+int p = -1;
+rep(i,0,n) {
+    cin >> arr[i];
+    if(p==-1 && arr[i]!=0) p=i;
+    sum+=arr[i];
+}
+if(p==-1){
+    cout << "1\n";
+    return 0;
+}
+ll ans = fact[sum-1];
+rep(i,0,n){
+    ans *= modInverse(fact[arr[i]]);
+    ans %=MOD;
+}
+
+cout << ans ;
+
+  return 0;
 }
 
 

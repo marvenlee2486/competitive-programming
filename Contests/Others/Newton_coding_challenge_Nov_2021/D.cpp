@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,96 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
+
+ll binpow(ll a, ll b) {
+    ll res = 1;
+
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        res%=MOD;
+        a%=MOD;
+        b >>= 1;
+    }
+    return res%MOD;
+}
+ll modInverse(ll a)
+{
+   
+    return  binpow(a, MOD - 2);
     
-int main(){
+}
+
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  int n,m,k;
+  cin >> n >> m >> k;
+  int cell[n+2][m+2];
+
+  FILL(cell,0);
+  while(k--){
+      int x,y;
+      char c;
+      cin >> x >> y >> c;
+      int fill = 1;
+      if(c=='R') fill =0;
+      rep(i,0,n+2){
+        if((x+i)%2 == fill){
+            cell[x][i] = -1;
+            
+        }
+        
+      }
+      fill = 1-fill;
+      rep(i,0,m+2){
+        if((i+y)%2 == fill){
+            cell[i][y] = -1;  
+        }
+      }
+  }
+
+  queue<ii> q;
+  q.push({1,1});
+    int dist[n+2][m+2];
+    FILL(dist,-1);
+    dist[1][1]=0;
+ int dx[4]= {0,0,-1,1};
+ int dy[4] = {1,-1,0,0};
+   
+ while(!q.empty()){
+     int x,y;
+     tie(x,y) = q.front();
+     q.pop();
+   
+     if(cell[x][y]==-1) continue;
+    cell [x][y]=-1;
+     for(int d=0;d<4;d++){
+         int nx = x +dx[d];
+         int ny = y + dy[d];
     
+         if(nx<1 || nx>n || ny<1 || ny >m || cell[nx][ny]==-1) continue;
+         dist[nx][ny] = dist[x][y]+1;
+        q.push({nx,ny});
+         
+     }
+
+
+
+ }
+
+  cout << dist[n][m] << "\n";
+ 
+
+
+
+  
+
+  return 0;
 }
 
 

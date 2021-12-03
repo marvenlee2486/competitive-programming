@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,71 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+ll prime[N];
+
+void sieve(){
+    prime[1]=1;
+    rep(i,4,N){
+        prime[i]=1;
+        i+=1;
+    }
+    prime[2]=0;
+
+    rep(i,3,N){
+        if(prime[i]) continue;
+
+        int j = i*2;
+        while(j<N) {
+            prime[j] =1;
+            j+=i;
+        }
+        
+    }
+
+}
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  FILL(prime,0);
+  sieve();
+  int t;
+  cin >> t;
+  while(t--){
+    ll n,e;
+    cin >> n >> e;
+    ll arr[n];
+    rep(i,0,n) cin >> arr[i];
+    ll ans =0;
+    rep(i,0,n){
+        if(prime[arr[i]]) continue;
+
+        ll left_cnt=0;
+        ll right_cnt=0;
+        int j = i-e;
+        while(j>=0 && arr[j]==1){
+            j-=e;
+            left_cnt++;
+        }
+
+        j = i+e;
+        while(j<n && arr[j]==1){
+            j+=e;
+            right_cnt++;
+        }
+
+        //cout << i << " " << left_cnt << " " << right_cnt << "\n";
+
+        ans += right_cnt + left_cnt * (right_cnt+1);
+
+
+
+
+    }
+    cout << ans << "\n";
+  }  
+  return 0;
 }
 
 

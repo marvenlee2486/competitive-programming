@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,89 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+ll prime[N];
+
+void sieve(){
+    prime[1]=1;
+    rep(i,4,N){
+        prime[i]=1;
+        i+=1;
+    }
+    prime[2]=0;
+
+    rep(i,3,N){
+        if(prime[i]) continue;
+
+        int j = i*2;
+        while(j<N) {
+            prime[j] =1;
+            j+=i;
+        }
+        
+    }
+
+}
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  FILL(prime,0);
+  int n;
+  int cnt =0;
+  int q;
+  cin >> n >> q;
+  str s;
+   cin >> s;
+   int memo[n];
+   FILL(memo,-1);
+   rep(i,0,n-2){
+       if(s[i]=='a' && s[i+1]=='b' && s[i+2]=='c'){
+           memo[i]=i;
+           memo[i+1]=i;
+           memo[i+2]=i;
+           cnt++;
+       }
+   }
+
+   while(q--){
+       int i; 
+       char c;
+       cin >> i >> c;
+       
+       i--;
+       
+       if(s[i]!=c){
+           s[i]=c;
+
+           if(memo[i]!=-1){
+              int de = memo[i];
+              memo[de]=-1;
+              memo[de+1]=-1;
+              memo[de+2]=-1;
+              cnt--;
+           }
+           
+            if(c=='b') i-=1;
+            if(c=='c') i-=2; 
+
+            if(i<=n-3 && i>=0){
+                //cout << i << " ";
+                if(s[i]=='a' && s[i+1]=='b' && s[i+2]=='c'){
+                    //cout << "YES ";
+                    memo[i]=i;
+                    memo[i+1]=i;
+                    memo[i+2]=i;
+                    cnt++;
+                }
+            }
+               
+           
+       }
+       //cout << s << " ";
+       cout << cnt << "\n"; 
+   }
+  return 0;
 }
 
 

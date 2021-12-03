@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,16 +55,53 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  set<ll> row;
+  set<ll> col;
+
+  ll h,w,c,q;
+  cin >> h >> w >> c >>q;
+  ll ans[c+1];
+  FILL(ans,0);
+  
+  viii query;
+  while(q--){
+      ll t,n,c;
+      cin >> t >> n >>c;
+      iii x= {t,n,c};
+      query.emplace_back(x);
+  }
+    reverse(query.begin(),query.end());
+    for(auto&[t,n,c]:query){
+        if(t==1){
+            if(row.find(n)==row.end()){
+             
+                ans[c]+= w - col.size();
+                row.insert(n);
+            }
+        }
+        else{
+            if(col.find(n)==col.end()){
+                ans[c] += h - row.size();
+                col.insert(n);
+            }
+        }
+    }
+
+    rep(i,1,c+1) cout << ans[i] << " ";
+  return 0;
 }
 
 
 /*
 Advise
 1) Think from another perspective ... Insteaf of + , try - ??
-2) long long
-3)
+2) Think reversely
+3) long long
+3) Calm down you can do it!!!
 */

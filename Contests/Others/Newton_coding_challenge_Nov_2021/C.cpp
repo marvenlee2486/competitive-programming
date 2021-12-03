@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,49 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
+
+ll binpow(ll a, ll b) {
+    ll res = 1;
+
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        res%=MOD;
+        a%=MOD;
+        b >>= 1;
+    }
+    return res%MOD;
+}
+ll modInverse(ll a)
+{
+   
+    return  binpow(a, MOD - 2);
     
-int main(){
-    
+}
+
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+ ll B,W; 
+ cin >> B >> W;
+
+ ll P1 = B*W%MOD * modInverse((B+W)*(B+W-1)%MOD) %MOD; 
+ P1 +=  B*W%MOD * modInverse((B+W)*(B+W)%MOD) %MOD;
+ P1 %=MOD;
+ ll PB = W * modInverse(B+W) %MOD;
+ PB *= PB;
+ PB %- MOD;
+ ll PA = W* modInverse(B+W-1)%MOD;
+ PA *= PA;
+ PA %= MOD;
+    ll PX = B * modInverse(W+B-1) %MOD;
+ ll ans = P1*modInverse( (1-PB+MOD) ) %MOD * PX %MOD * modInverse(1-PA+MOD) %MOD;
+ cout << ans;
+  return 0;
 }
 
 

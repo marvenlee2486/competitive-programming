@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,58 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  int n;
+  int cnt =0;
+  int q;
+  cin >> n >> q;
+  str s;
+   cin >> s;
+   int memo[n];
+   FILL(memo,0);
+   rep(i,0,n-2){
+       if(s[i]=='a' && s[i+1]=='b' && s[i+1]=='c'){
+           memo[i]=i+1;
+           memo[i+1]=i+1;
+           memo[i+2]=i+1;
+           cnt++;
+       }
+   }
+
+   while(q--){
+       int i; 
+       char c;
+       cin >> i >> c;
+       i--;
+       if(s[i]!=c){
+           if(memo[i]!=0){
+              int de = memo[i] -1;
+              memo[de]=0;
+              memo[de]=0;
+                memo[de]=0;
+                cnt--;
+           }
+           else{
+               if(c=='a'){
+                   if(i<=n-3){
+                       if(memo[i]=='a' && memo[i+1]=='b' && memo[i+2]=='c'){
+                           memo[i]=i+1;
+                           memo[i+1]=i+1;
+                           memo[i+2]=i+1;
+                           cnt++;
+                       }
+                   }
+               }
+           }
+       }
+       cout << cnt << "\n"; 
+   }
+  return 0;
 }
 
 

@@ -40,7 +40,7 @@ typedef vector< vector<str> > vvs;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
-const ll N = 1e5+2;
+const ll N = 1e6+2;
 
 #ifndef ONLINE_JUDGE
 #define LOG(message) cerr << message << endl;
@@ -55,10 +55,43 @@ template <typename... Ts> ll addm(ll x, Ts... ys) { return mod(x + addm(ys...));
 
 ll mulm(ll x) { return x; }
 template <typename... Ts> ll mulm(ll x, Ts... ys) { return mod(x * mulm(ys...)); }
-typedef long long ll;
-    
-int main(){
-    
+
+int main()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+  
+  int t;
+  cin >> t;
+  while(t--){
+    int x1,p1,x2,n1=0,n2=0,p2;
+    cin >> x1 >> p1 >> x2 >> p2;
+    int minp = min(p1,p2);
+    p1-=minp;
+    p2-=minp;
+
+    int temp = x1;
+    while(temp!=0){
+        temp/=10;
+        n1+=1;
+    }
+    temp = x2;
+    while(temp!=0){
+        temp/=10;
+        n2++;
+    }
+    if(n1+p1 > n2+p2) cout << ">\n";
+    else if (n1+p1 < n2+p2) cout << "<\n";
+    else{
+        while(p1>p2){
+            
+        }
+
+    }
+  }
+
+  return 0;
 }
 
 
