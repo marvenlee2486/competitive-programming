@@ -1,0 +1,30 @@
+Node 0: 
+	 'a' :1
+
+Node 1: 
+	 'b' :2
+
+Node 2: 
+	 'c' :3
+	 'd' :5
+
+Node 3: 
+	 'c' :8
+	 'd' :4
+
+Node 5: 
+	 'c' :7
+	 'd' :6
+
+Node 8: 
+Leaf Node
+
+Node 4: 
+Leaf Node
+
+Node 7: 
+Leaf Node
+
+Node 6: 
+Leaf Node
+
