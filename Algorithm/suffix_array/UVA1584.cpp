@@ -90,14 +90,22 @@ SuffixArray* sa;
 void solve(){
     string s;
     cin >> s;
+    int n = s.size();
+    s += s + "$";
     sa = new SuffixArray(s);
-    int idx = sa->sa[0];
-    cout << idx << " ";
-    for(int i = 0; i < s.size(); i ++) cout << sa->sa[i] << "\n";
-    for(int i = 0 ; i < s.size(); i ++){
+    int idx = -1;
+    for(int i = 0; i < s.size(); i ++) {
+        // cout << sa->sa[i] << " ";
+        // cout << s.substr(sa->sa[i], s.size()-sa->sa[i]) << "\n";
+        if(sa->sa[i] < n){
+            idx = sa->sa[i];
+            break;
+        }
+    }
+    for(int i = 0 ; i < n; i ++){
+        if( idx == 2*n) idx = 0;
         cout << s[idx];
         idx++;
-        if(idx==s.size()) idx = 0;
     }
     cout << "\n";
 }

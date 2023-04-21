@@ -1,0 +1,3 @@
+0 divides 0!
+0 divides 5!
+3 does not divide 0!

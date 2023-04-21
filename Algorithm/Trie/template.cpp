@@ -39,8 +39,8 @@ ll query(string s, trie* t){
     if(t->next[c] == NULL) {
       return 0;
     }
-    t = t->next[c];
     
+    t = t->next[c];  
   }
   return 1;
 }
